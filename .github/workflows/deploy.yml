@@ -39,5 +39,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ${{ secrets.EC2_TARGET_DIR }}
+            docker rm -f back-despachos || true
             docker compose pull back-despachos
             docker compose up -d back-despachos
